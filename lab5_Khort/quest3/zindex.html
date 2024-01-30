@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Index Example</title>
+    <style>
+        .z-index-container {
+            position: relative;
+            height: 200px;
+        }
+
+        .z-index-box1 {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: #ffcc00;
+            z-index: 2;
+        }
+
+        .z-index-box2 {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            width: 100px;
+            height: 100px;
+            background-color: #66cc66;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<a style="display: block; text-align: right" href="../../index.html">На головну</a>
+<a style="display: block; text-align: right" href="../quest1.html">Завдання 1</a>
+<a style="display: block; text-align: right" href="../quest2.html">Завдання 2</a>
+<a style="display: block; text-align: right" href="clear.html">Завдання 3 Clear</a>
+<a style="display: block; text-align: right" href="float.html">Завдання 3 Float</a>
+<a style="display: block; text-align: right" href="position.html">Завдання 3 Position</a>
+<a style="display: block; text-align: right" href="zindex.html">Завдання 3 Z-Index</a>
+    <div class="z-index-container">
+        <div class="z-index-box1"></div>
+        <div class="z-index-box2"></div>
+    </div>
+
+</body>
+</html>

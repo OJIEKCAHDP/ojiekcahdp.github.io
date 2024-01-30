@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear Example</title>
+    <style>
+        .clear-container {
+            border: 2px solid #333;
+        }
+
+        .clear-box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: #66cc66;
+            float: left;
+        }
+
+        .clearfix {
+            clear: left;
+        }
+    </style>
+</head>
+<body>
+<a style="display: block; text-align: right" href="../../index.html">На головну</a>
+<a style="display: block; text-align: right" href="../quest1.html">Завдання 1</a>
+<a style="display: block; text-align: right" href="../quest2.html">Завдання 2</a>
+<a style="display: block; text-align: right" href="clear.html">Завдання 3 Clear</a>
+<a style="display: block; text-align: right" href="float.html">Завдання 3 Float</a>
+<a style="display: block; text-align: right" href="position.html">Завдання 3 Position</a>
+<a style="display: block; text-align: right" href="zindex.html">Завдання 3 Z-Index</a>
+    <div class="clear-container">
+        <div class="clear-box"></div>
+        <div class="clear-box"></div>
+        <div class="clear-box clearfix"></div>
+    </div>
+
+</body>
+</html>

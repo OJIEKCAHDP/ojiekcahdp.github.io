@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        input:valid {
+            border: 2px solid green;
+        }
+
+        /* Стилі для елементів форми, які є недійсними (наприклад, введене некоректне значення) */
+        input:invalid {
+            border: 2px solid red;
+        }
+
+        /* Стилі для елементів форми при фокусі (коли елемент вибраний) */
+        input:focus {
+            outline: 2px solid blue;
+        }
+
+        /* Стилі для елементів, які є єдиними свого типу серед своїх сусідів одного роду */
+        input:only-of-type {
+            background-color: yellow;
+        }
+
+        /* Стилі для елементів, які є порожніми */
+        :empty {
+            background-color: lightgray;
+        }
+        /* Стилі для псевдоелементів */
+        a:link {
+            color: blue;
+            text-decoration: none; /* Видалити підкреслення */
+        }
+
+        /* Відвідане посилання */
+        a:visited {
+            color: purple;
+        }
+
+        /* Посилання при наведенні миші */
+        a:hover {
+            color: red;
+            text-decoration: underline; /* Додати підкреслення */
+        }
+
+        /* Активне (при натисканні) посилання */
+        a:active {
+            color: green;
+        }
+        form::before {
+            content: "Демонстрація веб-форми";
+            display: block;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        form::after {
+            content: "Кінець форми";
+            display: block;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        label::before {
+            content: "*";
+            color: red;
+            margin-right: 5px;
+        }
+
+        /* Стилі для ::first-letter */
+        label::first-letter {
+            font-size: 1.2em;
+        }
+
+        /* Стилі для ::first-line */
+        label::first-line {
+            text-transform: uppercase;
+        }
+    </style>
+    <title>Веб-Форма Демо</title>
+</head>
+<body>
+<a style="display: block; text-align: right" href="../index.html">На головну</a>
+    <form>
+        <label for="single-line-text">Однорядкове текстове поле:</label>
+        <input type="text" id="single-line-text" name="single-line-text"><br>
+
+        <label for="multi-line-text">Багаторядкова текстова область:</label>
+        <textarea id="multi-line-text" name="multi-line-text"></textarea><br>
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password"><br>
+
+        <label for="email">Електронна пошта:</label>
+        <input type="email" id="email" name="email"><br>
+
+        <label for="range">Діапазон:</label>
+        <input type="range" id="range" name="range"><br>
+
+        <fieldset>
+            <legend>Перемикач єдиного вибору:</legend>
+            <input type="radio" id="option1" name="radio-group" checked>
+            <label for="option1">Варіант 1</label>
+
+            <input type="radio" id="option2" name="radio-group">
+            <label for="option2">Варіант 2</label>
+        </fieldset>
+
+        <label for="checkbox">Прапорець для множинного вибору:</label>
+        <input type="checkbox" id="checkbox" name="checkbox"><br>
+
+        <label for="dropdown">Випадаючий список:</label>
+        <select id="dropdown" name="dropdown">
+            <optgroup label="Група 1">
+                <option value="option1">Варіант 1</option>
+                <option value="option2">Варіант 2</option>
+            </optgroup>
+            <optgroup label="Група 2">
+                <option value="option3">Варіант 3</option>
+                <option value="option4">Варіант 4</option>
+            </optgroup>
+        </select><br>
+
+        <label for="multi-select">Список множинного вибору:</label>
+        <select id="multi-select" name="multi-select" multiple>
+            <option value="option1">Варіант 1</option>
+            <option value="option2">Варіант 2</option>
+            <option value="option3">Варіант 3</option>
+        </select><br>
+
+        <input type="reset" value="Очистити форму"><br>
+
+        <input type="button" value="Натисни мене!" onclick='alert("О, ви натиснули мене!!!")'>
+    </form>
+
+</body>
+</html>

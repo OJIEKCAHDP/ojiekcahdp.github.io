@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(to right, #333, #555);
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+      border-radius: 10px;
+      transition: background-color 0.3s ease, transform 0.5s ease;
+    }
+
+    nav {
+      background: radial-gradient(circle, #eee, #ccc);
+      padding: 1em;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.5s ease;
+    }
+
+    section {
+      margin: 1em;
+      outline: 2px dashed #999;
+      padding: 1em;
+      cursor: pointer;
+      resize: both;
+      caret-color: red;
+      transition: outline 0.3s ease, background-color 0.3s ease, transform 0.5s ease;
+    }
+
+    article {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 1em;
+      margin-bottom: 1em;
+      border-image: url('border-image.png') 30 round;
+      transition: border-radius 0.3s ease, box-shadow 0.3s ease, transform 0.5s ease;
+    }
+
+    h1, h2 {
+      color: #333;
+      text-decoration: underline;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.5s ease;
+    }
+
+    blockquote {
+      quotes: "\201C""\201D""\2018""\2019";
+      transition: color 0.3s ease, transform 0.5s ease;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      transition: opacity 0.3s ease, transform 0.5s ease;
+      transform-style: preserve-3d;
+    }
+
+    img:hover {
+      opacity: 0.9;
+      transform: rotateY(180deg);
+    }
+  </style>
+  <title>Магазин Чоловічого Одягу</title>
+</head>
+<body>
+<a style="display: block; text-align: right" href="../../index.html">На головну</a>
+<a style="display: block; text-align: right" href="../index.html">Завдання 1</a>
+<a style="display: block; text-align: right" href="../quest2/index.html">Завдання 2</a>
+<a style="display: block; text-align: right" href="../quest3/index.html">Завдання 3</a>
+<a style="display: block; text-align: right" href="../quest4/index.html">Завдання 4</a>
+  <header>
+    <h1>Чоловічий Одяг</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#section1">Футболки</a></li>
+      <li><a href="#section2">Штани</a></li>
+      <li><a href="#section3">Аксесуари</a></li>
+    </ul>
+  </nav>
+
+  <section id="section1">
+    <article>
+      <h2>Футболки</h2>
+      <p>Футболки - невід'ємна частина гардеробу. Зручні і стильні, вони відображають ваш стиль та смак.</p>
+      <img src="../tshirts.jpg" alt="Футболка">
+      <blockquote>Мода - це стиль, а стиль - це вираз особистості.</blockquote>
+    </article>
+  </section>
+
+  <section id="section2">
+    <article>
+      <h2>Штани</h2>
+      <p>Штани - важлива частина образу. Від класичних до спортивних, ми маємо все для вашого комфорту та стилю.</p>
+      <img src="../shtany.jpg" alt="Штани">
+      <blockquote>Одяг має відображати те, хто ти є насправді.</blockquote>
+    </article>
+  </section>
+
+  <section id="section3">
+    <article>
+      <h2>Аксесуари</h2>
+      <p>Завершіть свій образ за допомогою наших стильних аксесуарів: годинників, краваток, сумок та багато іншого.</p>
+      <img src="../accessories.png" alt="Аксесуари">
+      <blockquote>Деталі роблять образ повним.</blockquote>
+    </article>
+  </section>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Example</title>
+    <style>
+        .container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            border: 2px solid #333;
+        }
+
+        .absolute-box {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: #ffcc00;
+        }
+
+        .relative-box {
+            position: relative;
+            top: 50px;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: #66cc66;
+        }
+
+        .fixed-box {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: #3399ff;
+        }
+    </style>
+</head>
+<body>
+<a style="display: block; text-align: right" href="../../index.html">На головну</a>
+<a style="display: block; text-align: right" href="../quest1.html">Завдання 1</a>
+<a style="display: block; text-align: right" href="../quest2.html">Завдання 2</a>
+<a style="display: block; text-align: right" href="clear.html">Завдання 3 Clear</a>
+<a style="display: block; text-align: right" href="float.html">Завдання 3 Float</a>
+<a style="display: block; text-align: right" href="position.html">Завдання 3 Position</a>
+<a style="display: block; text-align: right" href="zindex.html">Завдання 3 Z-Index</a>
+    <div class="container">
+        <div class="absolute-box"></div>
+        <div class="relative-box"></div>
+        <div class="fixed-box"></div>
+    </div>
+
+</body>
+</html>
