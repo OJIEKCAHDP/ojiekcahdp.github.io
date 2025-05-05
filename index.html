@@ -1,1 +1,249 @@
-Mini apps telegram test
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Маркетплейс</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Для модального вікна */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        /* Клас для анімації */
+        .seller-rating {
+            position: absolute;
+            top: 2%;
+            left: 2%;
+            width: 40px;
+            height: 40px;
+            border-radius: 50px; /* Зменшити округлість */
+            background-color: #2ecc71;
+            transition: width 0.3s, height 0.3s, background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .seller-rating:hover {
+            width: 120px;
+            height: 40px;
+            border-radius: 20px; /* Залишити кутки прямими або з невеликою округлістю */
+            background-color: #27ae60;
+        }
+
+        .seller-rating:hover .status-text {
+            opacity: 1;
+        }
+
+        .status-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 12px;
+        }
+
+        /* Для мобільної версії */
+        @media (max-width: 768px) {
+            .seller-rating:active {
+                width: 120px;
+                height: 40px;
+            }
+
+            .seller-rating:active .status-text {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script>
+    const tg = window.Telegram.WebApp;
+    tg.ready(); // Сигналізує, що все завантажено
+
+    tg.expand(); // Робить Mini App на повний екран
+    
+</script>
+
+
+<div class="max-w-6xl mx-auto p-4">
+
+    <!-- Пошук + фільтри -->
+    <div class="max-w-4xl mx-auto flex gap-2 mb-6 items-center">
+
+        <!-- Поле пошуку з іконкою -->
+        <div class="relative flex-1">
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a7 7 0 017 7 7 7 0 01-7 7 7 7 0 01-7-7 7 7 0 017-7zM11 2v2M11 20v2M19 11h2M3 11h2M16.243 16.243l1.414 1.414M7.757 7.757l1.414 1.414M16.243 7.757l1.414-1.414M7.757 16.243l1.414-1.414"/>
+                </svg>
+            </span>
+            <input type="text"
+                   placeholder="Пошук товарів..."
+                   class="w-full pl-10 p-2 border border-gray-300 rounded-full"/>
+        </div>
+
+        <!-- Кнопка з трьома смужками -->
+        <button onclick="openModal()" class="p-2 border border-gray-300 rounded-full w-10 h-10 flex items-center justify-center text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Сітка товарів -->
+    <div class="grid grid-cols-3 gap-4 max-w-4xl mx-auto">
+
+        <!-- Товар 1 -->
+        <div class="relative bg-white rounded-xl shadow p-3 flex flex-col h-full">
+
+            <!-- Рейтинг продавця -->
+            <div class="seller-rating" style="background-color: #2ecc71;">
+                <div class="status-text">Чудовий продавець</div>
+            </div>
+
+            <!-- Ціна в правому верхньому куті -->
+            <div class="absolute top-2 right-2 bg-red-600 text-white text-sm px-3 py-1 rounded-full font-semibold shadow">
+                500 грн
+            </div>
+
+            <img src="https://i1.poltava.to/news/111/11025/photo.jpg"
+                 alt="Товар"
+                 class="rounded mb-2 object-contain h-40 w-full"/>
+
+            <h2 class="font-semibold text-lg mb-1">Твердий сир</h2>
+            <p class="text-sm text-gray-600 mb-3">Прямо із молокозаводу!</p>
+
+            <div class="flex-grow"></div>
+
+            <!-- Кнопка "Деталі" -->
+            <div class="flex justify-center mt-4">
+                <a href="product.html?id=1"
+                   class="inline-block bg-blue-600 text-white px-4 py-1.5 rounded-full hover:bg-blue-700 transition mb-2">
+                    Деталі
+                </a>
+            </div>
+        </div>
+
+        <!-- Товар 2 -->
+        <div class="relative bg-white rounded-xl shadow p-3 flex flex-col h-full">
+
+            <!-- Рейтинг продавця -->
+            <div class="seller-rating" style="background-color: #e74c3c;">
+                <div class="status-text">Будьте обережні</div>
+            </div>
+
+            <!-- Ціна в правому верхньому куті -->
+            <div class="absolute top-2 right-2 bg-red-600 text-white text-sm px-3 py-1 rounded-full font-semibold shadow">
+                700 грн
+            </div>
+
+            <img src="https://books.google.cz/books/publisher/content?id=ImcXEQAAQBAJ&hl=ru&pg=PA1&img=1&zoom=3&bul=1&sig=ACfU3U33K9OlcUFTd_zGmVegiA9EfWszVw&w=1280"
+                 alt="Товар"
+                 class="rounded mb-2 object-contain h-40 w-full"/>
+
+            <h2 class="font-semibold text-lg mb-1">Книга: "Чистий код"</h2>
+            <p class="text-sm text-gray-600 mb-3">Для програмістів та розробників.</p>
+
+            <div class="flex-grow"></div>
+
+            <!-- Кнопка "Деталі" -->
+            <div class="flex justify-center mt-4">
+                <a href="product.html?id=2"
+                   class="inline-block bg-blue-600 text-white px-4 py-1.5 rounded-full hover:bg-blue-700 transition mb-2">
+                    Деталі
+                </a>
+            </div>
+        </div>
+
+        <!-- Товар 3 -->
+        <div class="relative bg-white rounded-xl shadow p-3 flex flex-col h-full">
+
+            <!-- Рейтинг продавця -->
+            <div class="seller-rating" style="background-color: #f39c12;">
+                <div class="status-text">Хороша репутація</div>
+            </div>
+
+            <!-- Ціна в правому верхньому куті -->
+            <div class="absolute top-2 right-2 bg-red-600 text-white text-sm px-3 py-1 rounded-full font-semibold shadow">
+                1000 грн
+            </div>
+
+            <img src="https://img2.kitchen-profi.com.ua/img/kp/92e/92e47bd9ad384b076be6b4f7b1175385x700x700x80.jpg"
+                 alt="Товар"
+                 class="rounded mb-2 object-contain h-40 w-full"/>
+
+            <h2 class="font-semibold text-lg mb-1">Набір чашок</h2>
+            <p class="text-sm text-gray-600 mb-3">Для вашої кухні.</p>
+
+            <div class="flex-grow"></div>
+
+            <!-- Кнопка "Деталі" -->
+            <div class="flex justify-center mt-4">
+                <a href="product.html?id=3"
+                   class="inline-block bg-blue-600 text-white px-4 py-1.5 rounded-full hover:bg-blue-700 transition mb-2">
+                    Деталі
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Модальне вікно для фільтрів -->
+<div id="filterModal" class="modal">
+    <div class="modal-content">
+        <h2 class="font-semibold text-lg mb-3">Фільтри</h2>
+        <label class="block mb-2">
+            <span class="text-gray-700">Категорія</span>
+            <select class="p-2 border border-gray-300 rounded w-full">
+                <option value="">Всі категорії</option>
+                <option value="electronics">Електроніка</option>
+                <option value="clothes">Одяг</option>
+                <option value="books">Книги</option>
+            </select>
+        </label>
+        <label class="block mb-4">
+            <span class="text-gray-700">Ціна</span>
+            <input type="range" min="0" max="1000" class="w-full" />
+        </label>
+        <div class="flex justify-end">
+            <button onclick="closeModal()" class="bg-blue-600 text-white px-4 py-2 rounded-md">Закрити</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal() {
+        document.getElementById("filterModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("filterModal").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
